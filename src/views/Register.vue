@@ -51,7 +51,7 @@
       </div>
       <p>
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" v-model="agree"/>
           <span>С правилами согласен</span>
         </label>
       </p>
@@ -97,6 +97,14 @@ export default {
         this.$v.$touch()
         return
       }
+
+      const formData = {
+        email: this.email,
+        password: this.password,
+        name: this.name,
+      }
+      console.log(formData)
+      this.$router.push('/')
     }
   }
 }
