@@ -18,40 +18,52 @@
 
     <!-- Если же есть, то показываем саму таблицу -->
     <section v-else>
-      <HistoryTable :records="records"/>
+      <HistoryTable :records="items"/>
+
+      <!-- Пагинация ( для визуальной части использовался плагин vuejs-paginate, а вся логика лежит в @/mixins/pagination.mixin) -->
+      <Paginate
+        v-model="page" 
+        :page-count="pageCount"
+        :click-handler="pageChangehandler"
+        :prev-text="'Назад'"
+        :next-text="'Вперёд'"
+        :container-class="'pagination'"
+        :page-class="'waves-effect'"
+      />
     </section>
   </div>
 </template>
 
 <script>
+import paginationMixin from '@/mixins/pagination.mixin' // Миксин в котором описана логика для пагинации
 import HistoryTable from '@/components/HistoryTable'
 export default {
   name: 'history',
+  mixins: [paginationMixin],
   data: () => ({
     loading: true,
-    records: [],
-    categories: []
+    records: []
   }),
   components: {
     HistoryTable, // Компонент таблицы
   },
   async mounted() {
     // Заходя на страницу мы сразу подгружаем нужные данные из api
-    // this.records = await this.$store.dispatch('fetchRecords')
-    const records = await this.$store.dispatch('fetchRecords')
-    this.categories = await this.$store.dispatch('fetchCategories')
+    this.records = await this.$store.dispatch('fetchRecords')
+    const categories = await this.$store.dispatch('fetchCategories')
 
-    this.records = records.map(record => {
+    // Тут сразу пропускаем через метод для пагинации 
+    this.setupPagination(this.records.map(record => {
       return {
         ...record,
-        categoryName: this.categories.find(c => c.id === record.categoryId).title, // Тут мы получаем имя категории
+        categoryName: categories.find(c => c.id === record.categoryId).title, // Тут мы получаем имя категории
         typeClass: record.type === 'income' ? 'green' : 'red', // Ставим цвет колонки
         typeText: record.type === 'income' ? 'Доход' : 'Расход', // Ставим нужный текст
 
 
 
       }
-    })
+    }))
     
 
     this.loading = false

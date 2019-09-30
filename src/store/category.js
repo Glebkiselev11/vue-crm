@@ -3,7 +3,7 @@ import firebase from 'firebase/app'
 export default {
   actions: {
 
-    // этот метод получает из firebase существующие категории
+    // Этот метод получает из firebase существующие категории
     async fetchCategories({commit, dispatch}) {
       try {
         const uid = await dispatch('getUid')
@@ -14,7 +14,18 @@ export default {
         throw e
       }
     },
-    // этот метод создает в firebase категории
+    // Здесь получаем конкретную категорию по айди
+    async fetchCategoryById({commit, dispatch}, id) {
+      try {
+        const uid = await dispatch('getUid')
+        const category = (await firebase.database().ref(`/users/${uid}/categories`).child(id).once('value')).val() || {}
+        return {...category, id}
+      } catch(e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+    // Этот метод создает в firebase категории
     async createCategory({commit, dispatch}, {title, limit}) {
       try {
         const uid = await dispatch('getUid')
@@ -26,7 +37,7 @@ export default {
       }
     },
 
-    // этот метод обновляет категории в firebase
+    // Этот метод обновляет категории в firebase
     async updateCategory({commit, dispatch}, {title, limit, id}) {
       try {
         const uid = await dispatch('getUid')
