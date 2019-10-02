@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import dateFilter from '@/filters/date.filter'
+import localizeFilter from '@/filters/localize.filter'
 import messagePlugin from '@/utils/message.plugin'
 import Loader from '@/components/app/Loader'
 import './registerServiceWorker'
@@ -20,8 +21,9 @@ Vue.config.productionTip = false
 
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
-Vue.filter('date', dateFilter)
-Vue.filter('currency', currencyFilter)
+Vue.filter('date', dateFilter) // Фильтр для даты
+Vue.filter('localize', localizeFilter) // Фильтр для локализации
+Vue.filter('currency', currencyFilter) // Фильтр для валюты
 Vue.directive('tooltip', tooltipDirective)
 Vue.component('Loader', Loader)
 Vue.component('Paginate', Paginate)

@@ -15,6 +15,7 @@ export default {
     }
   },
   actions: {
+    // Изменяет данные в базе
     async updateInfo({dispatch, commit, getters}, toUpdate) {
       try {
         const uid = await dispatch('getUid')

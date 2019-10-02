@@ -6,7 +6,8 @@
 
       <Navbar @click="isOpen = !isOpen" />
 
-      <Sidebar v-model="isOpen" />
+      <!-- Компонента сайд бара, :key нужен для того, чтобы динамически менять локализацию меню (отрисовывать по новой компонент при смене языка) -->
+      <Sidebar v-model="isOpen" :key="locale" />
 
       <main class="app-content" :class="{full: !isOpen}">
         <div class="app-page">
@@ -47,7 +48,11 @@ export default {
   computed: {
 		error() {
 			return this.$store.getters.error
-		}
+    },
+    locale() {
+      // Вызывает перерисовку компонента сайд бара, когда мы в профиле меняем язык, нужно чтобы реактивно менялся язык
+      return this.$store.getters.info.locale
+    }
 	},
 	watch: {
 		error(fbError) {
