@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{"Record_History" | localize}}</h3>
     </div>
 
     <div class="history-chart">
@@ -13,8 +13,8 @@
 
     <!-- Если в таблице ничего нет, то показываем этот текст -->
     <p class="center" v-else-if="!records.length">
-      Записей пока нет. 
-      <router-link to="/record" >Добавьте первую</router-link>
+      {{"No_records_yet" | localize}}. 
+      <router-link to="/record" >{{"Add_first" | localize}}</router-link>
     </p>  
 
     <!-- Если же есть, то показываем саму таблицу -->
@@ -26,8 +26,8 @@
         v-model="page" 
         :page-count="pageCount"
         :click-handler="pageChangehandler"
-        :prev-text="'Назад'"
-        :next-text="'Вперёд'"
+        :prev-text="'Back' | localize"
+        :next-text="'Forward' | localize"
         :container-class="'pagination'"
         :page-class="'waves-effect'"
       />

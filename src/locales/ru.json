@@ -7,6 +7,45 @@
   "Menu_History" : "История",
   "Menu_Planning" : "Планирование",
   "Menu_NewRecord" : "Новая запись",
-  "Menu_Categories" : "Категории"
+  "Menu_Categories" : "Категории",
+  "No_categories_yet" : "Категорий пока нет",
+  "Create" : "Создать",
+  "Title" : "Название",
+  "Limit" : "Лимит",
+  "Enter_a_category_name" : "Введите название категории",
+  "Minimum_value" : "Минимальное значение",
+  "Edit" : "Редактировать",
+  "Select_a_category" : "Выберите категорию",
+  "New_entry" : "Новая запись",
+  "Income" : "Доход",
+  "Outcome" : "Расход",
+  "Amount" : "Сумма",
+  "Description" : "Описание",
+  "Enter_a_description" : "Введите описание",
+  "Planning" : "Планирование",
+  "Add_New_Category" : "Добавить новую категорию",
+  "of" : "из",
+  "Excess_by" : "Превышение на",
+  "Stayed" : "Осталось",
+  "CreateNewRecord" : "Создать новую запись",
+  "Record_History" : "История записей",
+  "No_records_yet" : "Записей пока нет",
+  "Add_first" : "Добавьте первую",
+  "Back" : "Назад",
+  "Forward" : "Вперёд",
+  "Date" : "Дата",
+  "Category" : "Категория",
+  "Type" : "Тип",
+  "Open" : "Открыть",
+  "View_Record" : "Посмотреть запись",
+  "Bill" : "Счет",
+  "Currency_account" : "Счет в валюте",
+  "Exchange_Rates" : "Курс валют",
+  "Currency" : "Валюта",
+  "Course" : "Курс" 
+  
+  
+
+
 
 }
