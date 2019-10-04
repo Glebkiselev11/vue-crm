@@ -10,6 +10,7 @@
   "Menu_Categories" : "Categories",
   "No_categories_yet" : "No categories yet",
   "Create" : "Create",
+  "Detail_Title" : "Detail",
   "Title" : "Title",
   "Limit" : "Limit",
   "Enter_a_category_name" : "Enter a category name",
@@ -42,7 +43,9 @@
   "Currency_account" : "Currency account",
   "Exchange_Rates" : "Exchange rates",
   "Currency" : "Currency",
-  "Course" : "Course" 
+  "Course" : "Course",
+  "Login" : "Login",
+  "Register" : "Register"   
   
   
 }

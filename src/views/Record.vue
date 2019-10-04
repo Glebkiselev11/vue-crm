@@ -6,7 +6,7 @@
 
     <Loader v-if="loading" />
 
-    <p class="center" v-else-if="!categories.length" >Категорий пока нет. <router-link to="/categories">Добавить новую категорию</router-link></p>
+    <p class="center" v-else-if="!categories.length" >{{"No_categories_yet" | localize}}. <router-link to="/categories">Добавить новую категорию</router-link></p>
 
     <form class="form" v-else @submit.prevent="handlerSubmit">
       <div class="input-field" >
@@ -92,6 +92,11 @@ import {mapGetters} from 'vuex'
 
 export default {
   name: 'record',
+  metaInfo() {
+    return {
+      title: this.$title('Menu_NewRecord')
+    }
+  },
   data: () => ({
     loading: true,
     select: null,

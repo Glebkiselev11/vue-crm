@@ -44,8 +44,15 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { required } from 'vuelidate/lib/validators' // Подключаем валидацию на внесение имени
+import localeFilter from '@/filters/localize.filter'
 
 export default {
+  // metaInfo сделана методом для того, чтобы реактивно отрисововался компонент, при смене с англ на русс
+  metaInfo() {
+    return {
+      title: this.$title('ProfileTitle')
+    }
+  },
   data: () => ({
     name: '', // Имя пользователя
     isRuLocale: true, // Для локализации

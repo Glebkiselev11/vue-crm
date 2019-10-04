@@ -9,6 +9,7 @@
   "Menu_NewRecord" : "Новая запись",
   "Menu_Categories" : "Категории",
   "No_categories_yet" : "Категорий пока нет",
+  "Detail_Title" : "Подробнее",
   "Create" : "Создать",
   "Title" : "Название",
   "Limit" : "Лимит",
@@ -42,7 +43,9 @@
   "Currency_account" : "Счет в валюте",
   "Exchange_Rates" : "Курс валют",
   "Currency" : "Валюта",
-  "Course" : "Курс" 
+  "Course" : "Курс",
+  "Login" : "Войти",
+  "Register" : "Регистрация" 
   
   
 

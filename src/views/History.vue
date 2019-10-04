@@ -42,6 +42,11 @@ import {Pie} from 'vue-chartjs' // Импортируем круглый гра�
 
 export default {
   name: 'history',
+  metaInfo() {
+    return {
+      title: this.$title('Menu_History')
+    }
+  },
   extends: Pie,
   mixins: [paginationMixin],
   data: () => ({
